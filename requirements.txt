@@ -1,5 +1,6 @@
 streamlit
 streamlit-option-menu
+option_menu
 pandas
 plotly
 sqlite3
