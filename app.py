@@ -14,7 +14,8 @@ sql.commit()
 
 
 def run():
-    sd.title("$pendify")
+    sd.markdown("<h1 style='text-align: center; color: #FF4B4B;'>💸 $pendify</h1>", unsafe_allow_html=True)
+
 
     option = option_menu(
         menu_title=None,
@@ -32,5 +33,8 @@ def run():
         budget.app()
     elif option=="Report":
         report.app()
+    elif option == "Account":
+        sd.subheader("👤 Account Info")
+        sd.info("Account management coming soon...")
 
 run()

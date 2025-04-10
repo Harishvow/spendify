@@ -1,0 +1,5 @@
+streamlit
+streamlit-option-menu
+pandas
+plotly
+sqlite3
