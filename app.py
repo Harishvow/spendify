@@ -6,6 +6,8 @@ import expense
 import income
 import budget
 import report
+import account
+
 
 sql = sq.connect("data.db")
 c = sql.cursor()
@@ -34,7 +36,6 @@ def run():
     elif option=="Report":
         report.app()
     elif option == "Account":
-        sd.subheader("👤 Account Info")
-        sd.info("Account management coming soon...")
+        account.app()
 
 run()

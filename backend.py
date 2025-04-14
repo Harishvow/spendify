@@ -1,5 +1,19 @@
 import datetime
 import sqlite3 as sq
+import protobase_client as pc
+import streamlit as st
+def center_title(pos, size, color, title, align="center"):
+    if pos == "side":
+        st.sidebar.markdown(f"""
+                        <h1 style="font-family:monospace; color:{color}; font-size: {size}px;", align="{align}">{title}</h1>
+                        """,
+                            unsafe_allow_html=True)
+
+    else:
+        st.markdown(f"""
+                <h1 style="font-family:monospace; color:{color}; font-size: {size}px;", align="{align}">{title}</h1>
+""",
+                    unsafe_allow_html=True)
 
 class Expensetracker:
     def __init__(self):
@@ -101,3 +115,14 @@ class Expensetracker:
                 self.viewexpense(name, dates)
 
 
+class ProtobaseAuth:
+    def __init__(self, api_key):
+        self.api_key = api_key
+        self.client = pc.ProtoBaseClient()
+    def login(self,email,username, password):
+        response = self.client.signin_email(email, username, password, self.api_key)
+        return response
+
+    def signup(self, email, username, password):
+        response = self.client.signup_email(email, username, password, self.api_key)
+        return response
